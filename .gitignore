@@ -1,13 +1,5 @@
 /.project
 /.loadpath
-/config/additional_environment.rb
-/config/configuration.yml
-/config/database.yml
-/config/email.yml
-/config/initializers/session_store.rb
-/coverage
-/db/*.db
-/db/*.sqlite3
 /db/schema.rb
 /files/*
 /lib/redmine/scm/adapters/mercurial/redminehelper.pyc
@@ -20,5 +12,4 @@
 /tmp/sessions/*
 /tmp/sockets/*
 /tmp/test/*
-/vendor/rails
 *.rbc
