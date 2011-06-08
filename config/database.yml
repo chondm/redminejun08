@@ -27,13 +27,4 @@ test:
   password:
   encoding: utf8
 
-test_pgsql:
-  adapter: postgresql
-  database: redmine_test
-  host: localhost
-  username: postgres
-  password: "postgres"
 
-test_sqlite3:
-  adapter: sqlite3
-  database: db/test.sqlite3
