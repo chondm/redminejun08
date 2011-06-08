@@ -37,9 +37,9 @@ module TreeNodePatch
     # parent is set to be the receiver.  The child is added as the first child in
     # the current list of children for the receiver node.
     def prepend(child)
-      raise "Child already added" if @childrenHash.has_key?(child.name)
+      raise "Child already added" if @children_hash.has_key?(child.name)
 
-      @childrenHash[child.name]  = child
+      @children_hash[child.name]  = child
       @children = [child] + @children
       child.parent = self
       return child
@@ -50,9 +50,9 @@ module TreeNodePatch
     # parent is set to be the receiver.  The child is added at the position
     # into the current list of children for the receiver node.
     def add_at(child, position)
-      raise "Child already added" if @childrenHash.has_key?(child.name)
+      raise "Child already added" if @children_hash.has_key?(child.name)
 
-      @childrenHash[child.name]  = child
+      @children_hash[child.name]  = child
       @children = @children.insert(position, child)
       child.parent = self
       return child
@@ -60,9 +60,9 @@ module TreeNodePatch
     end
 
     def add_last(child)
-      raise "Child already added" if @childrenHash.has_key?(child.name)
+      raise "Child already added" if @children_hash.has_key?(child.name)
 
-      @childrenHash[child.name]  = child
+      @children_hash[child.name]  = child
       @children <<  child
       @last_items_count += 1
       child.parent = self
@@ -74,9 +74,9 @@ module TreeNodePatch
     # parent is set to be the receiver.  The child is added as the last child in
     # the current list of children for the receiver node.
     def add(child)
-      raise "Child already added" if @childrenHash.has_key?(child.name)
+      raise "Child already added" if @children_hash.has_key?(child.name)
 
-      @childrenHash[child.name]  = child
+      @children_hash[child.name]  = child
       position = @children.size - @last_items_count
       @children.insert(position, child)
       child.parent = self
@@ -180,7 +180,7 @@ module Redmine
       end
 
       def render_menu_node(node, project=nil)
-        if node.hasChildren? || !node.child_menus.nil?
+        if node.has_children? || !node.child_menus.nil?
           return render_menu_node_with_children(node, project)
         else
           caption, url, selected = extract_node_details(node, project)
